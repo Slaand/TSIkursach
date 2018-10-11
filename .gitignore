@@ -4,6 +4,11 @@
 # Log file
 *.log
 
+# Intellij folders & files
+target
+.idea
+*.iml
+
 # BlueJ files
 *.ctxt
 
