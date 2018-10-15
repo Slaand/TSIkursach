@@ -1,4 +1,4 @@
-package com.tsi.student;
+package com.tsi.student.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
