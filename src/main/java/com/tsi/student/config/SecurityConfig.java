@@ -19,13 +19,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/hello").hasAuthority("USER")
+                .antMatchers("/panel").hasAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .defaultSuccessUrl("/hello", true)
+                .defaultSuccessUrl("/panel", true)
                 .and()
             .logout()
                 .permitAll();

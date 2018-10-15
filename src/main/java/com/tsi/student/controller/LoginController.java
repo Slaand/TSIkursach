@@ -18,7 +18,7 @@ public class LoginController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             /* Если юзер залогинен и пытается пойти на основную страничку */
-            return new ModelAndView("forward:/hello");
+            return new ModelAndView("forward:/panel");
         } else {
             return new ModelAndView("login");
         }
