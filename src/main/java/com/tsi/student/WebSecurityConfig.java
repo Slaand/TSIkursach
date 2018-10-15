@@ -14,19 +14,26 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    // TODO запретить неавторизированный аксесс на хелло пейдж
+
     @Override
-    protected void configure(HttpSecurity http) throws Exception { // home
-        http
-            .authorizeRequests()
-                .antMatchers("/", "/login").permitAll()
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http.authorizeRequests()
+                .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
+                //.antMatchers("/hello").hasAuthority("USER")
                 .and()
             .formLogin()
                 .loginPage("/login")
                 .permitAll()
+                .defaultSuccessUrl("/hello", true)
                 .and()
             .logout()
                 .permitAll();
+
+        http.authorizeRequests().antMatchers("/resources/static/**").permitAll().anyRequest().permitAll();
+
     }
 
     @Bean
@@ -36,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
              User.withDefaultPasswordEncoder()
                 .username("user")
                 .password("password")
-                .roles("USER")
+                .authorities("USER")
                 .build();
 
         return new InMemoryUserDetailsManager(user);
