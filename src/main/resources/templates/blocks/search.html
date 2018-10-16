@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <div th:fragment="search">
+        <!-- начало блока со страницей поиска -->
+
+        <div class="media">
+            <div class="media-body">
+
+                <h5>Поиск студентов</h5>
+                <hr>
+
+                <br><br>
+
+                <form>
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <i class="fas fa-search h4 text-body"></i>
+                        </div>
+                        <div class="col">
+                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Поиск по критерию..">
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-success" type="submit">Поиск</button>
+                        </div>
+                    </div>
+                </form>
+
+                <h6>Результаты поиска</h6>
+                <br>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Фамилия</th>
+                        <th scope="col">Username</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <br><br>
+
+            </div>
+        </div>
+
+        <!-- конец блока со страницей поиска -->
+    </div>
+</body>
+</html>
