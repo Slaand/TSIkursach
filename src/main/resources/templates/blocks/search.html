@@ -94,6 +94,23 @@
                                 <form name="removeStudent" th:action="@{/remove}" method="post" th:hidden="true"><input hidden type="submit" value="removeStudent"/></form>
                             </td>
                         </tr>
+                    <tr>
+                    <tbody>
+                    <th:block th:each="student : ${studList}">
+                        <tr>
+                            <td th:text="${student.id}">A Smoke Test'</td>
+                            <td th:text="${student.name}">A Smoke Test'</td>
+                            <td th:text="${student.surname}">A Smoke Test'</td>
+                            <td th:text="${#dates.format(student.birthDate,'dd-MM-yyyy')}">A Smoke Test'</td>
+                            <td th:text="${student.personalCode}">A Smoke Test'</td>
+                            <td th:text="${student.adress}">A Smoke Test'</td>
+                            <td th:text="${student.faculty}">A Smoke Test'</td>
+                            <td th:text="${student.group}">A Smoke Test'</td>
+                            <td th:text="${#dates.format(student.enrollDate,'dd-MM-yyyy')}">A Smoke Test'</td>
+                            <td th:text="${student.city}">A Smoke Test'</td>
+                            <td th:text="${student.country}">A Smoke Test'</td>
+                        </tr>
+                    </th:block>
                     </tbody>
                 </table>
 
