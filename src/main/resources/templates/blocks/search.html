@@ -32,31 +32,37 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Имя</th>
-                        <th scope="col">Фамилия</th>
-                        <th scope="col">Username</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Birth day</th>
+                        <th>Personal code</th>
+                        <th>Address</th>
+                        <th>Faculty</th>
+                        <th>Group</th>
+                        <th>Enroll date</th>
+                        <th>City</th>
+                        <th>Country</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    <tbody>
+                    <th:block th:each="student : ${studList}">
+                        <tr>
+                            <td th:text="${student.id}">A Smoke Test'</td>
+                            <td th:text="${student.name}">A Smoke Test'</td>
+                            <td th:text="${student.surname}">A Smoke Test'</td>
+                            <td th:text="${#dates.format(student.birthDate,'dd-MM-yyyy')}">A Smoke Test'</td>
+                            <td th:text="${student.personalCode}">A Smoke Test'</td>
+                            <td th:text="${student.adress}">A Smoke Test'</td>
+                            <td th:text="${student.faculty}">A Smoke Test'</td>
+                            <td th:text="${student.group}">A Smoke Test'</td>
+                            <td th:text="${#dates.format(student.enrollDate,'dd-MM-yyyy')}">A Smoke Test'</td>
+                            <td th:text="${student.city}">A Smoke Test'</td>
+                            <td th:text="${student.country}">A Smoke Test'</td>
+                        </tr>
+                    </th:block>
                     </tbody>
                 </table>
 
