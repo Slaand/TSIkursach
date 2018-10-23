@@ -7,12 +7,15 @@
 
         <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.1.3/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="webjars/materialize/0.100.2/dist/css/materialize.min.css" />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- перевести на локалку -->
+        <link rel="stylesheet" type="text/css" href="webjars/material-design-icons/3.0.1/material-icons.css" />
+        <link rel="stylesheet" type="text/css" th:href="@{/sortable/bootstrap-sortable.css}"/>
         <link rel="stylesheet" type="text/css" th:href="@{/css/background.css}"/>
         <link rel="stylesheet" type="text/css" th:href="@{/css/panel.css}"/>
+        <style>
+            body { background-color:#fafafa;}
+            .container { margin:150px auto;}
+        </style>
     </head>
-
-    <!-- TODO по возможности перевести все удаленные файлы на локалку -->
 
     <body>
 
@@ -22,7 +25,7 @@
             <section class="row-section">
                 <div class="col-md-10 offset-md-1 row-block">
 
-                    <nav class="nav-extended pink darken-4">
+                        <nav class="nav-extended pink darken-4">
 
                         <div class="nav-wrapper">
                             <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -73,6 +76,7 @@
     <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1-1/jquery.min.js/}"></script>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
     <script type="text/javascript" th:src="@{/webjars/materialize/0.100.2/dist/js/materialize.min.js}"></script>
+    <script type="text/javascript" th:src="@{/sortable/bootstrap-sortable.js}"></script>
     <script type="text/javascript" th:src="@{/js/background.js}"></script>
 
     </body>
