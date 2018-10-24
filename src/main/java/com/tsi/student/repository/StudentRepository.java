@@ -1,4 +1,5 @@
 package com.tsi.student.repository;
+
 import org.springframework.data.repository.CrudRepository;
 
 import com.tsi.student.entity.Student;

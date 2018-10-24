@@ -1,12 +1,17 @@
 package com.tsi.student.entity;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
 @Table(name = "student")
 public class Student {
+
     @Id
     private int id;
 
@@ -20,21 +25,21 @@ public class Student {
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date birthDate;
 
+    @Column(name = "enrollDate")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private Date enrollDate;
+
     @Column(name = "personalCode")
     private String personalCode;
 
-    @Column(name = "address")
-    private String adress;
+//    @Column(name = "address")
+//    private String address;
 
     @Column(name = "faculty")
     private String faculty;
 
-    @Column(name = "group")
+    @Column(name = "stgroup")
     private String group;
-
-    @Column(name = "enrollDate")
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date enrollDate;
 
     @Column(name = "city")
     private String city;
@@ -74,13 +79,13 @@ public class Student {
         this.personalCode = personalCode;
     }
 
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
+//    public String getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
 
     public String getFaculty() {
         return faculty;

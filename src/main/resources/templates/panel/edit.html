@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <title>Panel page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="webjars/materialize/0.100.2/dist/css/materialize.min.css" />
+    <link rel="stylesheet" type="text/css" href="webjars/material-design-icons/3.0.1/material-icons.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/sortable/bootstrap-sortable.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/background.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/panel.css}"/>
+    <style>
+        body { background-color:#fafafa;}
+        .container { margin:150px auto;}
+    </style>
+</head>
+
+<body>
+
+<div id="particles">
+    <div id="webcoderskull">
+
+        <section class="row-section">
+            <div class="col-md-10 offset-md-1 row-block">
+
+                <nav class="nav-extended pink darken-4">
+
+                    <div class="nav-wrapper">
+                        <ul id="nav-mobile" class="left hide-on-med-and-down">
+                            <li th:inline="text">&nbsp;&nbsp; Привет [[${#httpServletRequest.remoteUser}]]!</li>
+                        </ul>
+                        <ul class="right hide-on-med-and-down">
+                            <li>
+                                <a href="javascript: document.logoutForm.submit()" role="menuitem"><i class="material-icons">exit_to_app</i></a>
+                                <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                                    <input hidden type="submit" value="Sign Out"/>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-content">
+                        <ul class="tabs tabs-transparent">
+                            <li class="tab"><a class="active" href="/panel">Поиск</a></li>
+                            <li class="tab"><a href="add">Добавить</a></li>
+                            <li class="tab"><a href="edit">Редактировать</a></li>
+                            <li class="tab"><a href="remove">Удалить</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- начало блока с редактированием студента -->
+
+                <div class="media">
+                    <div class="media-body">
+                        <h5>Редактирование студента</h5>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                    </div>
+                </div>
+
+                <!-- конец блока с редактированием студента -->
+
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/3.3.1-1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/materialize/0.100.2/dist/js/materialize.min.js}"></script>
+<script type="text/javascript" th:src="@{/sortable/bootstrap-sortable.js}"></script>
+<script type="text/javascript" th:src="@{/js/background.js}"></script>
+
+</body>
+</html>
