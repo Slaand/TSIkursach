@@ -25,28 +25,18 @@
             <section class="row-section">
                 <div class="col-md-10 offset-md-1 row-block">
 
-                        <nav class="nav-extended pink darken-4">
-
+                    <nav class="nav-extended pink darken-4">
                         <div class="nav-wrapper">
+                            <!--<a href="#" class="brand-logo right">Logo</a>-->
+                            <a href="javascript: document.logoutForm.submit()" class="brand-logo right" role="menuitem"><i class="material-icons">exit_to_app</i></a>
+                            <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                                <input hidden type="submit" value="Sign Out"/>
+                            </form>
                             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                                <li th:inline="text">&nbsp;&nbsp; Привет [[${#httpServletRequest.remoteUser}]]!</li>
-                            </ul>
-                            <ul class="right hide-on-med-and-down">
-                                <li>
-                                    <a href="javascript: document.logoutForm.submit()" role="menuitem"><i class="material-icons">exit_to_app</i></a>
-                                    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
-                                        <input hidden type="submit" value="Sign Out"/>
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="nav-content">
-                            <ul class="tabs tabs-transparent">
-                                <li class="tab"><a class="active" href="/panel">Поиск</a></li>
-                                <li class="tab"><a href="/panel/add">Добавить</a></li>
-                                <li class="tab"><a href="/panel/edit">Редактировать</a></li>
-                                <li class="tab"><a href="/panel/remove">Удалить</a></li>
+                                <li><a class="active" href="/panel">Поиск</a></li>
+                                <li><a href="add">Добавить</a></li>
+                                <li><a href="edit">Редактировать</a></li>
+                                <li><a href="remove">Удалить</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -58,75 +48,69 @@
                     <!-- начало блока со страницей поиска -->
                     <!-- TODO возродить кнопки -->
 
-                    <div class="media">
-                        <div class="media-body">
+                    <h5>Поиск студентов</h5>
+                    <hr>
 
-                            <h5>Поиск студентов</h5>
-                            <hr>
+                    <br><br>
 
-                            <br><br>
-
-                            <form>
-                                <div class="card-body row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <i class="fas fa-search h4 text-body"></i>
-                                    </div>
-                                    <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Поиск по критерию..">
-                                    </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-lg btn-success" type="submit">Поиск</button>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <!--<th data-defaultsign="_19">#</th>-->
-                            <!--<th data-defaultsign="AZ">First Name</th>-->
-                            <!--<th>Last Name</th>-->
-                            <!--<th data-defaultsign="month">Birthday</th>-->
-
-                            <h6>Результаты поиска</h6>
-                            <br>
-                            <table class="table table-striped sortable">
-                                <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Имя</th>
-                                    <th scope="col">Фамилия</th>
-                                    <th scope="col">Дата рождения</th>
-                                    <th scope="col">Дата зачисления</th>
-                                    <th scope="col">Перс.код</th>
-                                    <th scope="col">Адрес</th>
-                                    <th scope="col">Факультет</th>
-                                    <th scope="col">Группа</th>
-                                    <th scope="col">Действия</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <tr th:each="student : ${studList}">
-                                        <td th:text="${student.id}"></td>
-                                        <td th:text="${student.name}"></td>
-                                        <td th:text="${student.surname}"></td>
-                                        <td th:text="${#dates.format(student.birthDate,'dd-MM-yyyy')}"></td>
-                                        <td th:text="${#dates.format(student.enrollDate,'dd-MM-yyyy')}"></td>
-                                        <td th:text="${student.personalCode}"></td>
-                                        <td th:text="${student.city} +', '+ ${student.country}"></td>
-                                        <td th:text="${student.faculty}"></td>
-                                        <td th:text="${student.group}"></td>
-                                        <td>
-                                            <a class="badge badge-primary" href="javascript: document.editStudent.submit()" role="menuitem"><i class="far fa-edit"></i><i class="material-icons">edit</i></a>
-                                            <form name="editStudent" th:action="@{/edit}" method="get" th:hidden="true"><input hidden type="submit" value="editStudent"/></form>
-                                            <a class="badge badge-primary" href="javascript: document.editStudent.submit()" role="menuitem"><i class="far fa-edit"></i><i class="material-icons">edit</i></a>
-                                            <form name="editStudent" th:action="@{/blocks/edit}" method="get" th:hidden="true"><input hidden type="submit" value="editStudent"/></form>
-                                        </td>
-                                    <tr>
-                                </tbody>
-                            </table>
-
-                            <br><br>
-
+                    <form>
+                        <div class="card-body row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <i class="fas fa-search h4 text-body"></i>
+                            </div>
+                            <div class="col">
+                                <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Поиск по критерию..">
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-lg btn-success" type="submit">Поиск</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
+
+                    <!--<th data-defaultsign="_19">#</th>-->
+                    <!--<th data-defaultsign="AZ">First Name</th>-->
+                    <!--<th>Last Name</th>-->
+                    <!--<th data-defaultsign="month">Birthday</th>-->
+
+                    <h6>Результаты поиска</h6>
+                    <br>
+                    <table class="table table-striped sortable">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Имя</th>
+                            <th scope="col">Фамилия</th>
+                            <th scope="col">Дата рождения</th>
+                            <th scope="col">Дата зачисления</th>
+                            <th scope="col">Перс.код</th>
+                            <th scope="col">Адрес</th>
+                            <th scope="col">Факультет</th>
+                            <th scope="col">Группа</th>
+                            <th scope="col">Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="student : ${studList}">
+                            <td th:text="${student.id}"></td>
+                            <td th:text="${student.name}"></td>
+                            <td th:text="${student.surname}"></td>
+                            <td th:text="${#dates.format(student.birthDate,'dd-MM-yyyy')}"></td>
+                            <td th:text="${#dates.format(student.enrollDate,'dd-MM-yyyy')}"></td>
+                            <td th:text="${student.personalCode}"></td>
+                            <td th:text="${student.city} +', '+ ${student.country}"></td>
+                            <td th:text="${student.faculty}"></td>
+                            <td th:text="${student.group}"></td>
+                            <td>
+                                <a class="badge badge-primary" href="javascript: document.editStudent.submit()" role="menuitem"><i class="far fa-edit"></i><i class="material-icons">edit</i></a>
+                                <form name="editStudent" th:action="@{/edit}" method="get" th:hidden="true"><input hidden type="submit" value="editStudent"/></form>
+                                <a class="badge badge-danger" href="javascript: document.editStudent.submit()" role="menuitem"><i class="far fa-edit"></i><i class="material-icons">edit</i></a>
+                                <form name="editStudent" th:action="@{/blocks/edit}" method="get" th:hidden="true"><input hidden type="submit" value="editStudent"/></form>
+                            </td>
+                        <tr>
+                        </tbody>
+                    </table>
+
+                    <br><br>
 
                     <!-- конец блока со страницей поиска -->
 

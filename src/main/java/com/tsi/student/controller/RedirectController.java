@@ -8,10 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RedirectController {
 
-    @RequestMapping(value = "/edit")
-    public ModelAndView editStudent() {
-        return new ModelAndView("forward:/panel#edit");
-    }
+//    @RequestMapping(value = "/edit")
+//    public ModelAndView editStudent() {
+//        return new ModelAndView("forward:/panel#edit");
+//    }
 
 //    @RequestMapping(value = "/removeRed")
 //    public ModelAndView removeStudent() {

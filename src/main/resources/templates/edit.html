@@ -22,51 +22,32 @@
 <div id="particles">
     <div id="webcoderskull">
 
-
         <section class="row-section">
             <div class="col-md-10 offset-md-1 row-block">
 
                 <nav class="nav-extended pink darken-4">
-
                     <div class="nav-wrapper">
+                        <!--<a href="#" class="brand-logo right">Logo</a>-->
+                        <a href="javascript: document.logoutForm.submit()" class="brand-logo right" role="menuitem"><i class="material-icons">exit_to_app</i></a>
+                        <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                            <input hidden type="submit" value="Sign Out"/>
+                        </form>
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li th:inline="text">&nbsp;&nbsp; Привет [[${#httpServletRequest.remoteUser}]]!</li>
-                        </ul>
-                        <ul class="right hide-on-med-and-down">
-                            <li>
-                                <a href="javascript: document.logoutForm.submit()" role="menuitem"><i class="material-icons">exit_to_app</i></a>
-                                <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
-                                    <input hidden type="submit" value="Sign Out"/>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="nav-content">
-                        <ul class="tabs tabs-transparent">
-                            <li class="tab"><a class="active" href="/panel">Поиск</a></li>
-                            <li class="tab"><a href="add">Добавить</a></li>
-                            <li class="tab"><a href="edit">Редактировать</a></li>
-                            <li class="tab"><a href="remove">Удалить</a></li>
+                            <li><a class="active" href="/panel">Поиск</a></li>
+                            <li><a href="add">Добавить</a></li>
+                            <li><a href="edit">Редактировать</a></li>
+                            <li><a href="remove">Удалить</a></li>
                         </ul>
                     </div>
                 </nav>
 
-                <!-- начало блока с удалением студента -->
+                <!-- начало блока с редактированием студента -->
 
-                <!--<div th:fragment="search">-->
+                <h5>Редактирование студента</h5>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
 
-                <div class="media">
-                    <div class="media-body">
-
-                        <h5>Удаление студента</h5>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-
-                    </div>
-                </div>
-
-                <!-- конец блока с удалением студента -->
+                <!-- конец блока с редактированием студента -->
 
             </div>
         </section>
