@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <div th:fragment="header">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.1.3/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="webjars/materialize/0.100.2/dist/css/materialize.min.css" />
+        <link rel="stylesheet" type="text/css" href="webjars/material-design-icons/3.0.1/material-icons.css" />
+        <link rel="stylesheet" type="text/css" th:href="@{/sortable/bootstrap-sortable.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/background.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/panel.css}"/>
+        <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">-->
+        <style>
+            body { background-color:#fafafa;}
+            .container { margin:150px auto;}
+        </style>
+    </div>
+</body>
+</html>

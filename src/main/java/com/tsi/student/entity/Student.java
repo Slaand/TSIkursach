@@ -32,9 +32,6 @@ public class Student {
     @Column(name = "personalCode")
     private String personalCode;
 
-//    @Column(name = "address")
-//    private String address;
-
     @Column(name = "faculty")
     private String faculty;
 
@@ -78,14 +75,6 @@ public class Student {
     public void setPersonalCode(String personalCode) {
         this.personalCode = personalCode;
     }
-
-//    public String getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(String address) {
-//        this.address = address;
-//    }
 
     public String getFaculty() {
         return faculty;

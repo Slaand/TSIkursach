@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import com.tsi.student.repository.StudentRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -29,20 +30,21 @@ public class MainController {
         return "panel";
     }
 
-//    @RequestMapping(value={"/panel/add"})
-//    public ModelAndView addPage() {
-//        System.out.println("kek lol");
-//        return new ModelAndView("panel/add");
-//    }
-//
-//    @RequestMapping(value={"/panel/edit"})
-//    public ModelAndView editPage() {
-//        return new ModelAndView("panel/edit");
-//    }
-//
-//    @RequestMapping(value={"/panel/remove"})
-//    public ModelAndView removePage() {
-//        return new ModelAndView("panel/remove");
-//    }
+    @RequestMapping(value={"/add"})
+    public ModelAndView addAccount() {
+        return new ModelAndView("add");
+    }
+
+    @RequestMapping(value={"/edit"}, method = RequestMethod.GET)
+    public ModelAndView editAccount(@RequestParam("id") int id) {
+//        System.out.println("Your result:" +id);
+        return new ModelAndView("edit");
+    }
+
+    @RequestMapping(value={"/remove"}, method = RequestMethod.GET)
+    public ModelAndView removeAccount(@RequestParam("id") int id) {
+//        System.out.println("Your result #2:" +id);
+        return new ModelAndView("remove");
+    }
 }
 

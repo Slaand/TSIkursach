@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <div th:fragment="menu">
+        <nav class="nav-extended pink darken-4">
+            <div class="nav-wrapper">
+                <!--<a href="#" class="brand-logo right">Logo</a>-->
+                <a href="javascript: document.logoutForm.submit()" class="brand-logo right" role="menuitem"><i class="material-icons">exit_to_app</i></a>
+                <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                    <input hidden type="submit" value="Sign Out"/>
+                </form>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a class="active" href="/panel">Поиск</a></li>
+                    <li><a href="add">Добавить</a></li>
+                    <li><a href="#" style="color:#A8A8A8">Редактировать</a></li>
+                    <li><a href="#" style="color:#A8A8A8">Удалить</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
