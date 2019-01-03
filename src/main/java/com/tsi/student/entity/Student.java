@@ -22,11 +22,11 @@ public class Student {
     private String surname;
 
     @Column(name = "birthday")
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
 
     @Column(name = "enrollDate")
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date enrollDate;
 
     @Column(name = "personalCode")

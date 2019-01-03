@@ -11,19 +11,22 @@
 <div id="particles">
     <div id="webcoderskull">
 
+
         <section class="row-section">
             <div class="col-md-10 offset-md-1 row-block">
 
                 <div th:replace="addons/menu :: menu"/>
 
-                <!-- начало блока с редактированием студента -->
+                <!-- начало блока с удалением студента -->
 
                 <h5 style="text-align: center;">Редактирование студента</h5>
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                <p>Вы успешно отредактировали запись о студенте!</p>
 
-                <!-- конец блока с редактированием студента -->
-
+                <form action=/panel>
+                    <input class="btn btn-lg btn-success" type="submit" value="Вернуться" />
+                </form>
+                <!-- конец блока с удалением студента -->
             </div>
         </section>
 

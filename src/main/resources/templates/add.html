@@ -26,48 +26,57 @@
 
                 <br><br>
 
-                <form>
+                <form  action="#" th:action="@{/new_student}" th:object="${student}" method="post">
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label>Номер студента</label>
+                            <input type="text" class="form-control" placeholder="" id="id" th:field="*{id}" />
+                        </div>
                     <div class="form-row">
                         <div class="col form-group">
                             <label>Имя</label>
-                            <input type="text" class="form-control" placeholder="">
+                            <input type="text" class="form-control" placeholder="" id="name" th:field="*{name}" />
                         </div>
                         <div class="col form-group">
                             <label>Фамилия</label>
-                            <input type="text" class="form-control" placeholder=" ">
+                            <input type="text" class="form-control" placeholder="" id="surname" th:field="*{surname}" />
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Дата рождения</label>
-                            <input type="date" id="birthDate" class="form-control">
+                            <input type="date" id="birthDate" class="form-control" th:field="*{birthDate}" />
                         </div>
 
                         <div class="form-group col-md-6">
                             <label>Персональный код</label>
-                            <input type="text" class="form-control" placeholder=" ">
+                            <input type="text" class="form-control" placeholder="" id="personalcode" th:field="*{personalCode}" />
                         </div>
                     </div>
-
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>Дата зачисления </label>
+                                <input type="date" class="form-control" placeholder="" id="enroll" th:field="*{enrollDate}" />
+                            </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Факультет</label>
-                            <select id="inputFakult" class="form-control">
-                                <option selected="">Выберите...</option>
-                                <option>Факультет компьютерных наук и телекоммуникаций</option>
-                                <option>Факультет менеджмента и экономики</option>
-                                <option>Факультет транспорта и логистики</option>
+                            <select id="inputFakult" class="form-control" th:field="*{faculty}" >
+                                <option value="">Выберите...</option>
+                                <option value="Faculty of Computer Science and Telecommunications">Faculty of Computer Science and Telecommunications</option>
+                                <option value="Faculty of Management and Economics">Faculty of Management and Economics</option>
+                                <option value="Faculty of Transport and Logistics">Faculty of Transport and Logistics</option>
                             </select>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label>Группа</label>
-                            <select id="inputGroup" class="form-control">
-                                <option selected="">Выберите...</option>
-                                <option>4501BD</option>
-                                <option>4502BD</option>
-                                <option>4503BD</option>
+                            <select id="inputGroup" class="form-control" th:field="*{group}">
+                                <option value="">Выберите...</option>
+                                <option value="4501BD">4501BD</option>
+                                <option value="4502BD">4502BD</option>
+                                <option value="4503BD">4503BD</option>
                             </select>
                         </div>
                     </div>
@@ -75,17 +84,17 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Город</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="city" th:field="*{city}">
                         </div>
 
                         <div class="form-group col-md-6">
                             <label>Страна</label>
-                            <select id="inputState" class="form-control">
-                                <option selected="">Выберите...</option>
-                                <option>Латвия</option>
-                                <option>Россия</option>
-                                <option>Литва</option>
-                                <option>Эстония</option>
+                            <select id="inputState" class="form-control" th:field="*{country}">
+                                <option value="">Выберите...</option>
+                                <option value="Latvia">Latvia</option>
+                                <option value="Russia">Russia</option>
+                                <option value="Lithuania">Lithuania</option>
+                                <option value="Estonia">Estonia</option>
                             </select>
                         </div>
                     </div>
@@ -106,6 +115,7 @@
 </div>
 
 <div th:replace="addons/footer :: footer"/>
+</div>
 
 </body>
 </html>
