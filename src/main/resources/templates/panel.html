@@ -26,22 +26,12 @@
                 <form role="form" id="search" th:action=@{/search} method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Поиск по</label>
-                            <select id="inputFind" class="form-control" name="type">
-                                <option selected="">Выберите...</option>
-                                <option value="id_s"># студента</option>
-                                <option value="surname_s">Фамилии</option>
-                                <option value="group_s">Группе</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-md-6">
                             <div class="card-body row no-gutters align-items-center">
                                 <div class="col-auto">
                                     <i class="fas fa-search h4 text-body"></i>
                                 </div>
                                 <div class="col">
-                                    <input class="form-control form-control-lg form-control-borderless"  type="search" placeholder="Поиск по критерию..">
+                                    <input class="form-control form-control-lg form-control-borderless"  type="search" name="criteria" placeholder="Поиск по критерию..">
                                 </div>
                                 <div class="col-auto">
                                     <button class="btn btn-lg btn-success" type="submit">Поиск</button>
