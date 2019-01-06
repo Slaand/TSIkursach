@@ -29,65 +29,89 @@ public class MainController {
     private StudentRepository studentRepository;
 
     @RequestMapping(value = "/panel", method = RequestMethod.GET)
-    public String panel(Model model) {
+    public String panel(Model model)
+    {
         List<Student> studentList = studentRepository.findAll();
         model.addAttribute("studList", studentList);
         return "panel";
     }
 
-    @RequestMapping(value = {"/add"}, method = RequestMethod.GET)
+    @RequestMapping(value={"/add"}, method = RequestMethod.GET)
     public String addAccount(Model model) {
-        model.addAttribute("student", new Student());
+        model.addAttribute("student",new Student());
         return "add";
     }
 
-    @RequestMapping(value = {"/new_student"}, method = RequestMethod.POST)
+    @RequestMapping(value={"/new_student"}, method = RequestMethod.POST)
     public String create(Model model, @ModelAttribute(value = "student") Student student) {
         studentRepository.save(student);
         return "add_success";
     }
 
-    @RequestMapping(value = {"/edit_student"}, method = RequestMethod.POST)
+    @RequestMapping(value={"/edit_student"}, method = RequestMethod.POST)
     public String edit(Model model, @ModelAttribute(value = "student") Student student) {
         studentRepository.save(student);
         return "edit";
     }
 
-    @RequestMapping(value = {"/edit"}, method = RequestMethod.GET)
+    @RequestMapping(value={"/edit"}, method = RequestMethod.GET)
     public String editAccount(@RequestParam("id") int id, Model model) {
         List<Student> studentList = studentRepository.findAll();
-//        model.addAttribute("student",studentList.get(id - 1)); // Найс костыль, не? :D
-        model.addAttribute("student", studentList.get(id)); // хз честно, в моем случае всё нормально работает и без -1
+        model.addAttribute("student",studentList.get(id - 1)); // Найс костыль, не? :D
         return "edit_client";
     }
 
-    @RequestMapping(value = {"/remove"}, method = RequestMethod.GET)
+    @RequestMapping(value={"/remove"}, method = RequestMethod.GET)
     public String removeAccount(@RequestParam("id") int id) {
         List<Student> studentList = studentRepository.findAll();
-        for (Student stud : studentList) {
-            if (stud.getId() == id) {
+        for(Student stud : studentList)
+        {
+            if(stud.getId() == id)
+            {
                 studentRepository.deleteById(id);
             }
         }
         return "remove";
     }
-
-    @RequestMapping(value = {"/search"}, method = RequestMethod.POST)
-    public String searchBy(Model model, @RequestParam("id") int id, @RequestParam("surname") String surname, @RequestParam("group") String group, HttpSession session, HttpServletRequest request) {
-        String type = request.getParameter("type");
-        switch (type) {
-            case "id_s":
-                List<Student> studentListId = studentRepository.findStudentByID(id);
-                model.addAttribute("studList", studentListId);
-                break;
-            case "surname_s":
-                List<Student> studentListSur = studentRepository.findStudentBySurname(surname);
-                model.addAttribute("studList", studentListSur);
-                break;
-            case "group_s":
-                List<Student> studentListGr = studentRepository.findStudentByGroup(group);
+    @RequestMapping(value={"/search"}, method = RequestMethod.POST)
+    public String searchBy(Model model,@RequestParam(value = "criteria") String criteria) {
+        List<Student> studentList = studentRepository.findAll();
+        for(Student stud : studentList)
+        {
+            if (stud.getGroup().equals(criteria)) {
+                List<Student> studentListGr = studentRepository.findStudentByGroup(criteria);
                 model.addAttribute("studList", studentListGr);
-                break;
+            }
+            else if(stud.getSurname().equals(criteria))
+                {
+                List<Student> studentListSur = studentRepository.findStudentBySurname(criteria);
+                model.addAttribute("studList", studentListSur);
+            }
+            else if(stud.getCity().equals(criteria))
+            {
+                List<Student> studentListCity = studentRepository.findStudentByCity(criteria);
+                model.addAttribute("studList", studentListCity);
+            }
+            else if(stud.getFaculty().equals(criteria))
+            {
+                List<Student> studentListFac = studentRepository.findStudentByFac(criteria);
+                model.addAttribute("studList", studentListFac);
+            }
+            else if(stud.getName().equals(criteria))
+            {
+                List<Student> studentListName = studentRepository.findStudentByName(criteria);
+                model.addAttribute("studList", studentListName);
+            }
+            else if(stud.getCountry().equals(criteria))
+            {
+                List<Student> studentListCountry = studentRepository.findStudentByCountry(criteria);
+                model.addAttribute("studList", studentListCountry);
+            }
+            else if(stud.getPersonalCode().equals(criteria))
+            {
+                List<Student> studentListCode = studentRepository.findStudentByPersonalCode(criteria);
+                model.addAttribute("studList", studentListCode);
+            }
         }
         return "search";
     }
