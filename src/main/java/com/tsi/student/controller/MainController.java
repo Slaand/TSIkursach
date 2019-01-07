@@ -2,9 +2,6 @@ package com.tsi.student.controller;
 
 import com.tsi.student.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -13,11 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -57,7 +50,7 @@ public class MainController {
     @RequestMapping(value={"/edit"}, method = RequestMethod.GET)
     public String editAccount(@RequestParam("id") int id, Model model) {
         List<Student> studentList = studentRepository.findAll();
-        model.addAttribute("student",studentList.get(id - 1)); // Найс костыль, не? :D
+        model.addAttribute("student",studentList.get(id));
         return "edit_client";
     }
 

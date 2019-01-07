@@ -5,7 +5,7 @@
     <title>Panel page</title>
     <div th:replace="addons/header :: header"/>
     <style>
-        form { padding-top: 25px; padding-right: 50px; padding-bottom: 25px; padding-left: 50px; }
+        form { padding: 25px 50px; }
     </style>
 </head>
 
@@ -27,11 +27,14 @@
                 <br><br>
 
                 <form  action="#" th:action="@{/new_student}" th:object="${student}" method="post">
+
                     <div class="form-row">
                         <div class="col form-group">
                             <label>Номер студента</label>
                             <input type="text" class="form-control" placeholder="" id="id" th:field="*{id}" />
                         </div>
+                    </div>
+
                     <div class="form-row">
                         <div class="col form-group">
                             <label>Имя</label>
@@ -54,11 +57,14 @@
                             <input type="text" class="form-control" placeholder="" id="personalcode" th:field="*{personalCode}" />
                         </div>
                     </div>
-                        <div class="form-row">
-                            <div class="col form-group">
-                                <label>Дата зачисления </label>
-                                <input type="date" class="form-control" placeholder="" id="enroll" th:field="*{enrollDate}" />
-                            </div>
+
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label>Дата зачисления </label>
+                            <input type="date" class="form-control" placeholder="" id="enroll" th:field="*{enrollDate}" />
+                        </div>
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Факультет</label>
